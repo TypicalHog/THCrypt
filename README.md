@@ -17,4 +17,5 @@ Decryption example:
 
 ## Drag & drop
 Smply just drag the file onto the THCrypt.exe
+
 Note: You should create key.txt file beforehand. (16 characters should be sufficient)
