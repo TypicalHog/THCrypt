@@ -11,6 +11,11 @@ C++ console application that features symmetric key based file encryption.
 -Before encryption and decryption lookup tables are created if they are already not present. (Which is both good and bad because it makes the whole process a tiny bit faster but adds extra 2 files to the parent directory)
 
 
+I didn't have time to test it on any other platform but Windows :/
+
+I wanted to add ability to encrypt multiple files/folders at the same time by packing them all into 1 file and encrypting them (also the filenames).
+
+
 ## Command line
 Usage:
 
