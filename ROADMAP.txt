@@ -1,0 +1,41 @@
+ROADMAP
+
+Critical
+-Display current speed besides the progress bar and/or average speed at the end
+-File sizes represented both in bytes and in KB/MB/GB (when necessary)
+-Key strength info (plain/weak/moderate/secure/unrealistic)
+-Remaining time (ETA)
+-Add build date, version and author info
+-Skip encryption when key has a size of 0 bytes
+-Overwrite key and data buffers on completion
+-Option to open file after it has been decrypted
+-Replace some of the stack allocations with heap
+-Display input/output filenames instead of the whole path (maybe an option)
+-Optimized single threaded mode
+
+Important
+-Optimize threading
+-Message on failure
+-Log file
+-Parameter to disable progress reporting and/or any text output
+-Custom title
+-Fix RNG seeding during key generation and/or disable it and prompt  the user to enter the key (probably use base64)
+-Filename encryption (probably using base64)
+-Option to disable creation of lookup table files (maybe even make it on by default)
+-Detect if file already exists and prompt user for action
+-Continue progress on canceled operation
+-Option to delete original file and/or key file (with both normal and secure deletion)
+-Increase key size beyond 65536 characters limit (or even limit it to 256)
+-add URL where the newest version can be downloaded (maybe GitHub)
+-Encrypt the original file directly (without making a copy)
+
+Optional
+-Config/options file
+-Unique lookup tables (generated from key) and ability to cache them
+-Ability to pack multiple files and/or folders into one file
+-Backward compatibility
+-Bruteforce (and file recovery tool)
+-Option to shred file
+-Corruption detection (run reversed operation hash the files and compare hashes)
+-Benchmarking tool
+-Option to just obfuscate (encode) file
