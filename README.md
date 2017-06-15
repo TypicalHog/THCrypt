@@ -31,10 +31,14 @@ Note: You should create key.txt file beforehand. (16 characters long key should 
 ### Demo
 https://goo.gl/HsVj3S
 
+### Other stuff
+
+I had this project laying around so I picked it up and finished it for this coding challenge.
+
 I didn't have time to test it on any other platform but Windows :/
 
-I want to add the ability to pack multiple files/folders into 1 file and then encrypt it.
+I would like to add the ability to pack multiple files/folders into 1 file and then encrypt it.
 
 Also wanted to encrypt the file names and convert them to base64.
 
-I'm aware there is a possibility to recover deleted key.txt file and stuff but this is just a hobby project I made for fun so I don't really care.
+I'm aware there is a possibility to recover deleted key.txt file and stuff but this is just a hobby project I am working on for fun so I don't really care.
