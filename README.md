@@ -24,7 +24,7 @@ Decryption example:
 **THCrypt -d password.txt image-enc.jpg image-dec.jpg**
 
 ## Drag & drop
-Just simply drag the file onto the THCrypt.exe
+Just simply drag the file onto the THCrypt.exe (encrypted files will be given extension .enc)
 
 Note: You should create key.txt file beforehand. (16 characters long key should be sufficient)
 
