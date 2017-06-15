@@ -6,9 +6,9 @@ C++ console application that features symmetric key based file encryption.
 
 -Key can be up to 65536 characters long. (16 is more than enough though :O)
 
--Time complexity is linear, but every new character added to the key makes the time needed to brute-force the file 2^8 times longer.
+-Time complexity is linear, but every new character added to the key makes the brute-force 2^8 times harder.
 
--Before encryption and decryption lookup tables are created if they are already not present. (Which is both good and bad because it makes the whole process a tiny bit faster but adds extra 2 files to the parent directory)
+-Before encryption and decryption, lookup tables are created if they are not present already. (Which is both good and bad because it makes the whole process a tiny bit faster but adds 2 extra files to the parent directory)
 
 ## Command line
 Usage:
@@ -24,16 +24,16 @@ Decryption example:
 **THCrypt -d password.txt image-enc.jpg image-dec.jpg**
 
 ## Drag & drop
-Simply just drag the file onto the THCrypt.exe
+Just simply drag the file onto the THCrypt.exe
 
-Note: You should create key.txt file beforehand. (16 characters should be sufficient)
+Note: You should create key.txt file beforehand. (16 characters long key should be sufficient)
 
 ### Demo
 https://goo.gl/HsVj3S
 
 I didn't have time to test it on any other platform but Windows :/
 
-I wanted to add the ability to pack multiple files/folders into 1 file and then encrypt it.
+I want to add the ability to pack multiple files/folders into 1 file and then encrypt it.
 
 Also wanted to encrypt the file names and convert them to base64.
 
