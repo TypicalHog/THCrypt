@@ -4,9 +4,7 @@ C++ console application that features symmetric key based file encryption.
 
 ## Command line
 Usage:
-{
-THCrypt <-e | -d> <key filename> <input filename> <output filename>
-}
+THCrypt \<-e | -d\> \<key filename\> \<input filename\> \<output filename\>
 
 Encryption example:
 THCrypt -e password.txt image.jpg image-enc.jpg
