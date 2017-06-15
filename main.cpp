@@ -1,3 +1,6 @@
+// THCrypt v1.0
+// Copyright (c) 2017 TypicalHog
+
 #include <chrono>
 #include <cstring>
 #include <fstream>
