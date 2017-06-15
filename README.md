@@ -1,6 +1,11 @@
 # THCrypt
 C++ console application that features symmetric key based file encryption.
 
+### Some facts
+-It is possible encrypt the file with another file.
+-Key can be up to 65536 characters long. (16 is more then enough though :O)
+-Before encryption and decryption lookup tables are created if they are already not present. (Which is both good and bad because it makes the whole process faster but )
+
 
 ## Command line
 Usage:
@@ -20,5 +25,5 @@ Smply just drag the file onto the THCrypt.exe
 
 Note: You should create key.txt file beforehand. (16 characters should be sufficient)
 
-### Testing environment
+### Demo
 https://goo.gl/HsVj3S
