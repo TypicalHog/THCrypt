@@ -1,7 +1,7 @@
 // THCrypt v1.0
 // Copyright (c) 2017 TypicalHog
 
-// I will comment the code and explain how the encryption works when I catch time
+// I will comment all the code and explain how everything works when I catch some time
 
 #include <chrono>
 #include <cstring>
