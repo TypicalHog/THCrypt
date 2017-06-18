@@ -179,18 +179,18 @@ int main(int argc, char *argv[])
 
 		if (operation == "-e")
 		{
-			std::cout << "\nOperation: Encryption" << std::endl;
+			std::cout << "\nOperation:        Encryption" << std::endl;
 		}
 		else /*if (operation == "-d")*/
 		{
-			std::cout << "\nOperation: Decryption" << std::endl;
+			std::cout << "\nOperation:        Decryption" << std::endl;
 		}
 		std::cout << "Threads:          " << num_threads << std::endl;
 		std::cout << "Key size:         " << key_size << " bytes (" << key_size * 8 << "-bit)" << std::endl;
 		std::cout << "Input file name:  " << filename_in << std::endl;
 		std::cout << "Output file name: " << filename_out << std::endl;
 		std::cout << "File size:        " << file_size << " bytes" << std::endl;
-		std::cout << "--------------------------------------------------" << std::endl;
+		std::cout << "-------------------------------------------------------------------" << std::endl;
 
 		auto start = std::chrono::high_resolution_clock::now();
 
