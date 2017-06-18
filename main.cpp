@@ -201,7 +201,14 @@ int main(int argc, char *argv[])
 		unsigned long long current_chunk = 0;
 
 		bytes_left = file_size;
-		progress_bar(0, num_chunks);
+		if (num_chunks != 0)
+		{
+			progress_bar(0, num_chunks);
+		}
+		else
+		{
+			progress_bar(1, 1);
+		}
 		while (p_buffer_status != -1 || s_buffer_status != -1 || bytes_left > 0)
 		{
 			// Join threads
