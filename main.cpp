@@ -76,14 +76,14 @@ int main(int argc, char *argv[])
 		switch (generate_key(filename_key, new_key_size))
 		{
 		case 0:
-			std::cout << "\nINFO: Existing key found." << std::endl;
+			std::cout << "INFO: Existing key found." << std::endl;
 			break;
 		case 1:
-			std::cout << "\nINFO: Generated new " << new_key_size * 8 << "-bit key." << std::endl;
+			std::cout << "INFO: Generated new " << new_key_size * 8 << "-bit key." << std::endl;
 			std::cout << "WARNING: Generated key is NOT cryptographically secure!" << std::endl;
 			break;
 		default:
-			std::cout << "\nERROR: Cannot create key." << std::endl;
+			std::cout << "ERROR: Cannot create key." << std::endl;
 			return 0;
 		}
 	}
