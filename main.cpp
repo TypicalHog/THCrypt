@@ -432,9 +432,9 @@ int generate_lookup_tables(const int seed)
 
 void encrypt(long long id, long long num_threads, long long key_size, unsigned char *key, long long buffer_size, unsigned char *buffer, unsigned char *lookup_table)
 {
-	for (long long i = id; i < buffer_size; i += num_threads)
+	for (long long j = 0; j < key_size; ++j)
 	{
-		for (long long j = 0; j < key_size; ++j)
+		for (long long i = id; i < buffer_size; i += num_threads)
 		{
 			buffer[i] = lookup_table[key[j] * 256 + (buffer[i] + i) % 256];
 		}
@@ -443,9 +443,9 @@ void encrypt(long long id, long long num_threads, long long key_size, unsigned c
 
 void decrypt(long long id, long long num_threads, long long key_size, unsigned char *key, long long buffer_size, unsigned char *buffer, unsigned char *lookup_table)
 {
-	for (long long i = id; i < buffer_size; i += num_threads)
+	for (long long j = key_size - 1; j > -1; --j)
 	{
-		for (long long j = key_size - 1; j > -1; --j)
+		for (long long i = id; i < buffer_size; i += num_threads)
 		{
 			buffer[i] = (lookup_table[key[j] * 256 + buffer[i]] - i) % 256;
 		}
