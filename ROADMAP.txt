@@ -12,7 +12,7 @@ Critical
 -Replace some of the stack allocations with heap
 -Display input/output filenames instead of the whole path (maybe an option)
 -Optimized single threaded mode
--Prevent user from choosing the key, lookup tables or program itself as an imput or an output file
+-Prevent user from choosing the key, lookup tables or program itself as an input or an output file
 -Prevent user from choosing the same file as both input and output file
 
 Important
