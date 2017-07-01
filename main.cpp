@@ -1,4 +1,4 @@
-// THCrypt v1.0
+// THCrypt v1.1
 // Copyright (c) 2017 TypicalHog
 
 // I will comment all the code and explain how everything works when I catch some time
