@@ -1,7 +1,8 @@
 // THCrypt v1.1
 // Copyright (c) 2017 TypicalHog
+// https://github.com/TypicalHog/THCrypt
 
-// I will comment all the code and explain how everything works when I catch some time
+// I will comment the code and explain how everything works when I catch some time.
 
 #include <chrono>
 #include <cstring>
@@ -432,22 +433,22 @@ int generate_lookup_tables(const int seed)
 
 void encrypt(long long id, long long num_threads, long long key_size, unsigned char *key, long long buffer_size, unsigned char *buffer, unsigned char *lookup_table)
 {
-	for (long long j = 0; j < key_size; ++j)
+	for (long long i = 0; i < key_size; ++i)
 	{
-		for (long long i = id; i < buffer_size; i += num_threads)
+		for (long long j = id; j < buffer_size; j += num_threads)
 		{
-			buffer[i] = lookup_table[key[j] * 256 + (buffer[i] + i) % 256];
+			buffer[j] = lookup_table[key[i] * 256 + (buffer[j] + j) % 256];
 		}
 	}
 }
 
 void decrypt(long long id, long long num_threads, long long key_size, unsigned char *key, long long buffer_size, unsigned char *buffer, unsigned char *lookup_table)
 {
-	for (long long j = key_size - 1; j > -1; --j)
+	for (long long i = key_size - 1; i > -1; --i)
 	{
-		for (long long i = id; i < buffer_size; i += num_threads)
+		for (long long j = id; j < buffer_size; j += num_threads)
 		{
-			buffer[i] = (lookup_table[key[j] * 256 + buffer[i]] - i) % 256;
+			buffer[j] = (lookup_table[key[i] * 256 + buffer[j]] - j) % 256;
 		}
 	}
 }
