@@ -14,24 +14,8 @@
 #include <thread>
 #include <vector>
 
-inline bool file_exists(const std::string &filename)
-{
-	std::ifstream file(filename.c_str());
-	return file.is_open();
-}
-inline void progress_bar(unsigned long long current, unsigned long long max, unsigned long long rate = 100, unsigned long long width = 50)
-{
-	if (max >= rate) if (current % (max / rate) != 0) if (current != max) return;
-	//if (current % (max / rate + 1) != 0) if (current != max) return;
-
-	float ratio = (float)current / max;
-	unsigned long long c = (unsigned int)(ratio * width);
-
-	std::cout << "\rProgress: " << std::setw(3) << (int)(ratio * 100) << "% [";
-	for (unsigned long long i = 0; i < c; ++i) std::cout << "=";
-	for (unsigned long long i = c; i < width; ++i) std::cout << " ";
-	std::cout << "]" << std::flush;
-}
+bool file_exists(const std::string &filename);
+void progress_bar(unsigned long long current, unsigned long long max, unsigned long long rate = 100, unsigned long long width = 50);
 int generate_key(const std::string &filename_key, const int size);
 int generate_lookup_tables(const int seed);
 void encrypt(long long id, long long num_threads, long long key_size, unsigned char *key, long long buffer_size, unsigned char *buffer, unsigned char *lookup_table);
@@ -344,6 +328,26 @@ int main(int argc, char *argv[])
 	if (external_run) std::cin.ignore();
 
 	return 0;
+}
+
+bool file_exists(const std::string &filename)
+{
+	std::ifstream file(filename.c_str());
+	return file.is_open();
+}
+
+void progress_bar(unsigned long long current, unsigned long long max, unsigned long long rate, unsigned long long width)
+{
+	if (max >= rate) if (current % (max / rate) != 0) if (current != max) return;
+	//if (current % (max / rate + 1) != 0) if (current != max) return;
+
+	float ratio = (float)current / max;
+	unsigned long long c = (unsigned int)(ratio * width);
+
+	std::cout << "\rProgress: " << std::setw(3) << (int)(ratio * 100) << "% [";
+	for (unsigned long long i = 0; i < c; ++i) std::cout << "=";
+	for (unsigned long long i = c; i < width; ++i) std::cout << " ";
+	std::cout << "]" << std::flush;
 }
 
 int generate_key(const std::string &filename_key, const int size)
