@@ -41,4 +41,4 @@ I would like to add the ability to pack multiple files/folders into 1 file and t
 
 Also wanted to encrypt the file names and convert them to base64.
 
-I'm aware there is a possibility to recover deleted key.txt file and stuff but this is just a hobby project I am working on for fun so I don't really care.
+I'm aware there is a possibility to recover deleted key.txt file and stuff but this is just a hobby project I am working on for fun so I don't really care that much, all of this will be resolved in the future.
