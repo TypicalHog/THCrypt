@@ -179,8 +179,9 @@ int main(int argc, char *argv[])
 
 		auto start = std::chrono::high_resolution_clock::now();
 
-		long long p_buffer_status = -1;
-		long long s_buffer_status = -1;
+		enum BufferStatus { EMPTY = -1, DATA_LOADED = 0, DATA_IN_USE = 1, DATA_PROCESSED = 2 };
+		long long p_buffer_status = EMPTY;
+		long long s_buffer_status = EMPTY;
 		long long p_buffer_size = 0;
 		long long s_buffer_size = 0;
 		unsigned long long current_chunk = 0;
@@ -194,24 +195,24 @@ int main(int argc, char *argv[])
 		{
 			progress_bar(1, 1);
 		}
-		while (p_buffer_status != -1 || s_buffer_status != -1 || bytes_left > 0)
+		while (p_buffer_status != EMPTY || s_buffer_status != EMPTY || bytes_left > 0)
 		{
 			// Join threads
 			for (unsigned long long id = 0; id < threads.size(); ++id) {
 				threads[(unsigned int)id].join();
 			}
 			threads.clear();
-			if (p_buffer_status == 1)
+			if (p_buffer_status == DATA_IN_USE)
 			{
-				p_buffer_status = 2;
+				p_buffer_status = DATA_PROCESSED;
 			}
-			else if (s_buffer_status == 1)
+			else if (s_buffer_status == DATA_IN_USE)
 			{
-				s_buffer_status = 2;
+				s_buffer_status = DATA_PROCESSED;
 			}
 
 			// Create threads
-			if (p_buffer_status == 0)
+			if (p_buffer_status == DATA_LOADED)
 			{
 				if (operation == "-e")
 				{
@@ -225,9 +226,9 @@ int main(int argc, char *argv[])
 						threads.push_back(std::thread(decrypt, id, num_threads, key_size, std::ref(key), p_buffer_size, std::ref(p_buffer), std::ref(lookup_table)));
 					}
 				}
-				p_buffer_status = 1;
+				p_buffer_status = DATA_IN_USE;
 			}
-			else if (s_buffer_status == 0)
+			else if (s_buffer_status == DATA_LOADED)
 			{
 				if (operation == "-e")
 				{
@@ -241,29 +242,29 @@ int main(int argc, char *argv[])
 						threads.push_back(std::thread(decrypt, id, num_threads, key_size, std::ref(key), s_buffer_size, std::ref(s_buffer), std::ref(lookup_table)));
 					}
 				}
-				s_buffer_status = 1;
+				s_buffer_status = DATA_IN_USE;
 			}
 
 			// Write data
-			if (p_buffer_status == 2)
+			if (p_buffer_status == DATA_PROCESSED)
 			{
 				f_out.write(reinterpret_cast<const char *>(&p_buffer), p_buffer_size);
 				++current_chunk;
 				progress_bar(current_chunk, num_chunks);
-				p_buffer_status = -1;
+				p_buffer_status = EMPTY;
 			}
-			else if (s_buffer_status == 2)
+			else if (s_buffer_status == DATA_PROCESSED)
 			{
 				f_out.write(reinterpret_cast<const char *>(&s_buffer), s_buffer_size);
 				++current_chunk;
 				progress_bar(current_chunk, num_chunks);
-				s_buffer_status = -1;
+				s_buffer_status = EMPTY;
 			}
 
 			// Read data
 			if (bytes_left > 0)
 			{
-				if (p_buffer_status == -1)
+				if (p_buffer_status == EMPTY)
 				{
 					if (bytes_left >= buffer_size)
 					{
@@ -277,9 +278,9 @@ int main(int argc, char *argv[])
 						p_buffer_size = bytes_left;
 						bytes_left = 0;
 					}
-					p_buffer_status = 0;
+					p_buffer_status = DATA_LOADED;
 				}
-				else if (s_buffer_status == -1)
+				else if (s_buffer_status == EMPTY)
 				{
 					if (bytes_left >= buffer_size)
 					{
@@ -293,7 +294,7 @@ int main(int argc, char *argv[])
 						s_buffer_size = bytes_left;
 						bytes_left = 0;
 					}
-					s_buffer_status = 0;
+					s_buffer_status = DATA_LOADED;
 				}
 			}
 		}
