@@ -6,7 +6,7 @@ C++ console application that features symmetric key based file encryption.
 
 -Key can be up to 65536 characters long. (16 is more than enough though :O)
 
--Time complexity is linear, but every new character added to the key makes the brute-force 2^8 times harder.
+-Time complexity is linear, but every new character added to the key makes the brute-force attack 2^8 times harder.
 
 -Before encryption and decryption, lookup tables are created if they are not present already. (Which is both good and bad because it makes the whole process a tiny bit faster but adds 2 extra files to the parent directory)
 
