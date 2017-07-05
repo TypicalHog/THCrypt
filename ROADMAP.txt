@@ -2,16 +2,15 @@ ROADMAP
 
 Critical
 -Display current speed besides the progress bar and/or average speed at the end
--File sizes represented both in bytes and in KB/MB/GB (when necessary)
--Key strength info (plain/weak/moderate/secure/unrealistic)
 -Remaining time (ETA)
+-Key strength info (plain/weak/moderate/secure/unrealistic)
 -Add build date, version and author info
 -Skip encryption when key has a size of 0 bytes
 -Overwrite key and data buffers on completion
 -Option to open file after it has been decrypted
 -Replace some of the stack allocations with heap
--Display input/output filenames instead of the whole path (maybe an option)
--Optimized single threaded mode
+-Display just input/output filenames instead of the whole path (maybe an option)
+-Optimize single threaded mode
 -Prevent user from choosing the key, lookup tables or program itself as an input or an output file
 -Prevent user from choosing the same file as both input and output file
 
@@ -28,8 +27,8 @@ Important
 -Continue progress on canceled operation
 -Option to delete original file and/or key file (with both normal and secure deletion)
 -Increase key size beyond 65536 characters limit (or even limit it to 256)
--add URL where the newest version can be downloaded (maybe GitHub)
 -Encrypt the original file directly (without making a copy)
+-Preallocate files
 
 Optional
 -Config/options file
