@@ -1,4 +1,4 @@
-// THCrypt v1.1
+// THCrypt v1.2
 // Copyright (c) 2017 TypicalHog
 // https://github.com/TypicalHog/THCrypt
 
@@ -108,6 +108,7 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
+	if (!external_run) std::cout << '\n';
 	switch (generate_lookup_tables(1337))
 	{
 	case 0:
@@ -171,10 +172,27 @@ int main(int argc, char *argv[])
 			std::cout << "\nOperation:   Decryption" << std::endl;
 		}
 		std::cout << "Threads:     " << num_threads << std::endl;
+		std::cout << "Key source:  " << "[FILE] " << filename_key << std::endl;
+		//std::cout << "Key source:  " << "[USER_INPUT]" << std::endl;
 		std::cout << "Key size:    " << key_size << " bytes (" << key_size * 8 << "-bit)" << std::endl;
 		std::cout << "Input file:  " << filename_in << std::endl;
 		std::cout << "Output file: " << filename_out << std::endl;
-		std::cout << "File size:   " << file_size << " bytes" << std::endl;
+		if (file_size < 1024)
+		{
+			std::cout << "File size:   " << file_size << " bytes" << std::endl;
+		}
+		else if (file_size < 1024 * 1024)
+		{
+			std::cout << "File size:   " << file_size / 1024.0 << " KB (" << file_size << " bytes)" << std::endl;
+		}
+		else if (file_size < 1024 * 1024 * 1024)
+		{
+			std::cout << "File size:   " << file_size / (1024.0 * 1024.0) << " MB (" << file_size << " bytes)" << std::endl;
+		}
+		else
+		{
+			std::cout << "File size:   " << file_size / (1024.0 * 1024.0 * 1024.0) << " GB (" << file_size << " bytes)" << std::endl;
+		}
 		std::cout << "-------------------------------------------------------------------" << std::endl;
 
 		auto start = std::chrono::high_resolution_clock::now();
@@ -309,15 +327,25 @@ int main(int argc, char *argv[])
 		{
 			std::cout << "\nTIME: " << time << " microseconds" << std::endl;
 		}
-		else if (time < 1000000)
+		else if (time < 1000'000)
 		{
 			time = std::chrono::duration<double, std::milli>(end - start).count();
 			std::cout << "\nTIME: " << time << " milliseconds" << std::endl;
 		}
-		else
+		else if (time < 1000'000'000)
 		{
 			time = std::chrono::duration<double>(end - start).count();
 			std::cout << "\nTIME: " << time << " seconds" << std::endl;
+		}
+		else if (time < 1000'000'000LL * 60)
+		{
+			time = std::chrono::duration<double, std::ratio<60>>(end - start).count();
+			std::cout << "\nTIME: " << time << " minutes" << std::endl;
+		}
+		else
+		{
+			time = std::chrono::duration<double, std::ratio<3600>>(end - start).count();
+			std::cout << "\nTIME: " << time << " hours" << std::endl;
 		}
 	}
 	else
@@ -325,7 +353,7 @@ int main(int argc, char *argv[])
 		std::cout << "\nERROR: Cannot access file." << std::endl;
 	}
 
-	std::cout << "\n---OPERATION COMPLETE---" << std::endl;
+	std::cout << "\n===COMPLETED===" << std::endl;
 	if (external_run) std::cin.ignore();
 
 	return 0;
@@ -345,7 +373,7 @@ void progress_bar(unsigned long long current, unsigned long long max, unsigned l
 	float ratio = (float)current / max;
 	unsigned long long c = (unsigned int)(ratio * width);
 
-	std::cout << "\rProgress: " << std::setw(3) << (int)(ratio * 100) << "% [";
+	std::cout << "\rPROGRESS: " << std::setw(3) << (int)(ratio * 100) << "% [";
 	for (unsigned long long i = 0; i < c; ++i) std::cout << "=";
 	for (unsigned long long i = c; i < width; ++i) std::cout << " ";
 	std::cout << "]" << std::flush;
