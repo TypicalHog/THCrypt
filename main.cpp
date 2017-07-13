@@ -1,4 +1,4 @@
-// THCrypt v1.2
+// THCrypt v1.3
 // Copyright (c) 2017 TypicalHog
 // https://github.com/TypicalHog/THCrypt
 
@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 		}
 
 		filename_key = "key.txt";
-		const int new_key_size = 32;
+		const int new_key_size = 16;
 		switch (generate_key(filename_key, new_key_size))
 		{
 		case 0:
@@ -129,7 +129,7 @@ int main(int argc, char *argv[])
 
 	if (f_in.is_open() && f_out.is_open() && f_key.is_open() && f_lookup_table.is_open())
 	{
-		unsigned char key[256 * 256];
+		unsigned char key[256];
 		unsigned char p_buffer[256 * 256];
 		unsigned char s_buffer[256 * 256];
 		unsigned char lookup_table[256 * 256];
@@ -156,10 +156,10 @@ int main(int argc, char *argv[])
 		f_in.seekg(0, std::ios::beg);
 		num_chunks = (unsigned long long)ceil((double)file_size / (double)buffer_size);
 
-		if (key_size > 65536LL)
+		if (key_size > 256LL)
 		{
-			std::cout << "WARNING: Key too long, truncating to 65536 bytes!" << std::endl;
-			key_size = 65536LL;
+			std::cout << "WARNING: Key too long, truncating to 256 bytes!" << std::endl;
+			key_size = 256LL;
 		}
 		f_key.read(reinterpret_cast<char *>(&key), key_size);
 

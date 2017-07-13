@@ -26,7 +26,6 @@ Important
 -Detect if file already exists and prompt user for action
 -Continue progress on canceled operation
 -Option to delete original file and/or key file (with both normal and secure deletion)
--Increase key size beyond 65536 characters limit (or even limit it to 256)
 -Encrypt the original file directly (without making a copy)
 -Preallocate files
 
