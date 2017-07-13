@@ -29,8 +29,8 @@ Just simply drag the file onto the THCrypt.exe (encrypted files will be given ex
 Note: You should create key.txt file beforehand. (16 characters long key should be sufficient)
 
 ### Demo
-
-https://goo.gl/HsVj3S (Includes 64 and 32-bit executables, source code, README.md, LICENSE, ROADMAP.txt and some demonstration files)
+https://goo.gl/HsVj3S
+(Includes 64 and 32-bit executables, source code, README.md, LICENSE, ROADMAP.txt and some demonstration files)
 
 ### Other stuff
 
