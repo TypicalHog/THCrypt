@@ -26,7 +26,7 @@ Important
 -Detect if file already exists and prompt user for action
 -Continue progress on canceled operation
 -Option to delete original file and/or key file (with both normal and secure deletion)
--Encrypt the original file directly (without making a copy)
+-Option to encrypt the original file directly (without making a copy)
 -Preallocate files
 
 Optional
@@ -35,7 +35,7 @@ Optional
 -Ability to pack multiple files and/or folders into one file
 -Backward compatibility
 -Bruteforce (and file recovery tool)
--Option to shred file
--Corruption detection (run reversed operation hash the files and compare hashes)
+-Option to shred files
+-Corruption detection (run reversed operation and compare file hashes)
 -Benchmarking tool
 -Option to just obfuscate (encode) file
