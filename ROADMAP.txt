@@ -19,7 +19,7 @@ Important
 -Message on failure
 -Log file
 -Parameter to disable progress reporting and/or any text output
--Custom title
+-Custom console window title
 -Fix RNG seeding during key generation and/or disable it and prompt  the user to enter the key (probably use base64)
 -Filename encryption (probably using base64)
 -Option to disable creation of lookup table files (maybe even make it on by default)
