@@ -1,6 +1,6 @@
 ROADMAP
 
-Critical
+#1 PRIORITY
 -Display current speed besides the progress bar and/or average speed at the end
 -Remaining time (ETA)
 -Key strength info (plain/weak/moderate/secure/unrealistic)
@@ -14,7 +14,7 @@ Critical
 -Prevent user from choosing the key, lookup tables or program itself as an input or an output file
 -Prevent user from choosing the same file as both input and output file
 
-Important
+#2 PRIORITY
 -Optimize threading
 -Message on failure
 -Log file
@@ -29,7 +29,7 @@ Important
 -Option to encrypt the original file directly (without making a copy)
 -Preallocate files
 
-Optional
+#3 PRIORITY
 -Config/options file
 -Unique lookup tables (generated from key) and ability to cache them
 -Ability to pack multiple files and/or folders into one file
