@@ -38,4 +38,4 @@ ROADMAP
 -Option to shred files
 -Corruption detection (run reversed operation and compare file hashes)
 -Benchmarking tool
--Option to obfuscate (encode) file (by encryption it with key 0)
+-Option to obfuscate (encode) file (by encrypting it with key 0)
