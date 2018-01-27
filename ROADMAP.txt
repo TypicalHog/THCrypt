@@ -1,17 +1,17 @@
 ROADMAP
 
 #1 PRIORITY
--Display current speed besides the progress bar and/or average speed at the end
--Remaining time (ETA)
--Key strength info (plain/weak/moderate/secure/unrealistic)
+-Display current speed besides the progress bar and/or average speed upon completion
+-Display remaining time
+-Key strength feedback (plain/weak/moderate/secure/unrealistic)
 -Add build date, version and author info
--Skip encryption when key has a size of 0 bytes
--Overwrite key and data buffers on completion
+-Skip encryption/decryption when key has a size of 0 bytes
+-Overwrite key and data buffers upon completion
 -Option to open file after it has been decrypted
 -Replace some of the stack allocations with heap
--Display just input/output filenames instead of the whole path (maybe an option)
+-Display just input/output filenames instead of the whole path or make it an option
 -Optimize single threaded mode
--Prevent user from choosing the key, lookup tables or program itself as an input or an output file
+-Prevent user from choosing the key, lookup tables or the program itself as an input or an output file
 -Prevent user from choosing the same file as both input and output file
 
 #2 PRIORITY
@@ -20,22 +20,22 @@ ROADMAP
 -Log file
 -Parameter to disable progress reporting and/or any text output
 -Custom console window title
--Fix RNG seeding during key generation and/or disable it and prompt  the user to enter the key (probably use base64)
--Filename encryption (probably using base64)
--Option to disable creation of lookup table files (maybe even make it on by default)
+-Fix PRNG seeding during key generation or disable it completely and prompt the user to enter the key (probably using base64 or base58)
+-Filename encryption (probably using base64 or base58)
+-Option to disable creation of lookup table files and maybe make it off by default
 -Detect if file already exists and prompt user for action
--Continue progress on canceled operation
--Option to delete original file and/or key file (with both normal and secure deletion)
--Option to encrypt the original file directly (without making a copy)
+-Continue progress if operation was canceled
+-Option to quickly/securely delete the original file and/or key file
+-Option to operate on the original file directly (without making a copy)
 -Preallocate files
 
 #3 PRIORITY
 -Config/options file
--Unique lookup tables (generated from key) and ability to cache them
--Ability to pack multiple files and/or folders into one file
+-Unique lookup tables for every key and ability to cache them
+-Option to pack multiple files and/or folders into one file
 -Backward compatibility
--Bruteforce (and file recovery tool)
+-Bruteforce recovery tool
 -Option to shred files
 -Corruption detection (run reversed operation and compare file hashes)
 -Benchmarking tool
--Option to just obfuscate (encode) file
+-Option to obfuscate (encode) file (by encryption it with key 0)
