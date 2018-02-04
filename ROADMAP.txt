@@ -1,6 +1,5 @@
 ROADMAP
 
-#1 PRIORITY
 -Display current speed besides the progress bar and/or average speed upon completion
 -Display remaining time
 -Key strength feedback (plain/weak/moderate/secure/unrealistic)
@@ -13,8 +12,6 @@ ROADMAP
 -Optimize single threaded mode
 -Prevent user from choosing the key, lookup tables or the program itself as an input or an output file
 -Prevent user from choosing the same file as both input and output file
-
-#2 PRIORITY
 -Optimize threading
 -Message on failure
 -Log file
@@ -28,8 +25,6 @@ ROADMAP
 -Option to quickly/securely delete the original file and/or key file
 -Option to operate on the original file directly (without making a copy)
 -Preallocate files
-
-#3 PRIORITY
 -Config/options file
 -Unique lookup tables for every key and ability to cache them
 -Option to pack multiple files and/or folders into one file
