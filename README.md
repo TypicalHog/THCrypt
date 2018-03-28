@@ -39,5 +39,6 @@ Linux release is planned for the future.
 
 32-bit version is significantly slower than the 64-bit version at the moment. (Fixed in the upcoming release)
 
-I'm aware there is a possibility to recover the deleted key.txt file, this will be resolved in the future alongside some other things. (Check the roadmap for more info)
+I'm aware there is a possibility to recover the deleted key.txt file.
+This will be resolved in the future alongside some other things. (Check the roadmap for more info)
 https://github.com/TypicalHog/THCrypt/blob/master/ROADMAP.txt
