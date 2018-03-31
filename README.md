@@ -4,7 +4,7 @@ C++ console application that features unique symmetric key based file encryption
 ### Some facts
 -It is possible to encrypt the file with another file.
 
--Key can be up to 256 characters long. (16 is more than enough though :O)
+-Key can be up to 256 characters long. (I would say 16 is enough)
 
 -Time complexity is linear, but every new character added to the key makes the brute-force attack 256 (2^8) times harder.
 
