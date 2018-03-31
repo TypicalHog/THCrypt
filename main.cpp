@@ -87,7 +87,7 @@ int main(int argc, char *argv[])
 		else
 		{
 			std::cout << "\nERROR: Bad argument." << std::endl;
-			std::cout << "Usage: Crypter <-e | -d> <key filename> <input filename> <output filename>" << std::endl;
+			std::cout << "Usage: THCrypt <-e | -d> <key filename> <input filename> <output filename>" << std::endl;
 			return 0;
 		}
 
@@ -104,7 +104,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		std::cout << "\nERROR: Wrong number of arguments." << std::endl;
-		std::cout << "Usage: Crypter <-e | -d> <key filename> <input filename> <output filename>" << std::endl;
+		std::cout << "Usage: THCrypt <-e | -d> <key filename> <input filename> <output filename>" << std::endl;
 		return 0;
 	}
 
