@@ -1,5 +1,5 @@
 # THCrypt
-C++ console application that features unique symmetric key based file encryption algorithm.
+C++ console application that features unique (at least I think so) symmetric key based file encryption algorithm.
 
 ### Some facts
 -It is possible to encrypt the file with another file.
