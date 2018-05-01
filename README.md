@@ -6,7 +6,7 @@ C++ console application that features unique (at least I think so) symmetric key
 
 -Key can be up to 256 bytes (2048-bit) long, which is overkill. (I think 16 bytes (128-bit) is enough for almost any purpose.)
 
--Time complexity is O(n) (linear), but every new character added to the key makes the brute-force attack 2^8 (256) times harder.
+-Time complexity is O(n) (linear) and dependent on the size of they key, but every new byte added to the key makes the brute-force attack 2^8 (256) times harder.
 
 -Before encryption or decryption, lookup tables are generated if they are not present already. (Which is a compromise because it makes the whole process a tiny bit faster but adds 2 extra files to the working directory.)
 
@@ -24,7 +24,7 @@ Decryption example:
 **THCrypt -d password.txt image-enc.jpg image-dec.jpg**
 
 ## Drag & drop
-Just simply drag the file onto the "THCrypt.exe". (Encrypted files will be given extension ".enc".)
+Just simply drag and drop the file onto the "THCrypt.exe". (Encrypted files will be given extension ".enc".)
 
 Note: You should create "key.txt" file beforehand and put the key inside.
 
