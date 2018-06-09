@@ -6,7 +6,7 @@ C++ console application that features unique (at least I think so) symmetric key
 
 -Key can be up to 256 bytes (2048-bit) long, which is overkill. (I think 16 bytes (128-bit) is enough for almost any purpose.)
 
--Time complexity is O(n) and it is linearly dependent on the size of the key, but every new byte added to the key makes the brute-force attack 2^8 (256) times harder.
+-Time complexity is O(n) and it is linearly dependent on the size of the key, but every new byte added to the key makes the brute-force attack 2^8 (256) times harder (assuming there are no other weaknesses).
 
 -Before encryption or decryption, lookup tables are generated if they are not present already. (Which is a compromise because it makes the whole process a tiny bit faster but adds 2 extra files to the working directory.)
 
