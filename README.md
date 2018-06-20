@@ -35,8 +35,6 @@ https://goo.gl/HsVj3S
 
 ### Other stuff
 
-Linux release is planned in the future.
-
 The 32-bit version is currently significantly slower than the 64-bit version. (Fixed in the upcoming release.)
 
 I'm aware there is a possibility deleted "key.txt" could be recovered after it has been deleted from the drive.
