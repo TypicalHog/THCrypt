@@ -1,8 +1,7 @@
 # THCrypt
-C++ console application that features unique (at least I think so) symmetric key based file encryption algorithm.
+C++ console application that features unique (at least I think so) symmetric key-based file encryption algorithm.
 
-### Some facts
--It is possible to encrypt the file with another file. (Key size was recently limited to 256 bytes, thus, only the first 256 bytes from the file are being used as a key at the moment. This is very INSECURE since different files could sometimes begin with a similar sequence of bytes. However, SHA-256 hash of the file could and will be used as a key in the future.)
+-It is possible to encrypt the file with another file. (Key size was recently limited to 256 bytes, thus, only the first 256 bytes from the file are being used as a key at the moment. This is very INSECURE since different files could sometimes begin with a similar sequence of bytes. However, the SHA-256 hash of the file could and will be used as a key in the future.)
 
 -Key can be up to 256 bytes (2048-bit) long, which is overkill. (I think 16 bytes (128-bit) is enough for almost any purpose.)
 
